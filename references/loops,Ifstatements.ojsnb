@@ -1,0 +1,90 @@
+{
+    "id": "e606d110-c195-4ed5-b92e-a7d1cafd82fd",
+    "files": [],
+    "nodes": [
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "let myline = \"feefifofum\"\r\nfor(let i = 0; 1 < 11; i++){\r\n    const newChar = myline[i]\r\n    console.log(newChar)\r\n}",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "if,Else, ",
+            "mode": "md",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "function nextPrime(n) {\r\n  while (true) {\r\n    if (isPrime(n)) return n;\r\n    n++;\r\n  }\r\n}\r\n\r\nconst n = 4; // Change n to any arbitrary number you want\r\nconsole.log(nextPrime(n));\r\n\r\nconst csvString = `Index,Mass (kg),Spring 1 (m),Spring 2 (m)\\n1,0.00,0.050,0.050\\n2,0.49,0.066,0.066\\n3,0.98,0.087,0.080\\n4,1.47,0.116,0.108\\n5,1.96,0.142,0.138\\n6,2.45,0.166,0.158\\n7,2.94,0.193,0.174\\n8,3.43,0.204,0.192\\n9,3.92,0.226,0.205\\n10,4.41,0.238,0.232`;\r\n\r\nconst rows = csvString.split(\"\\n\");\r\n\r\nfor (let row of rows) {\r\n  const cells = row.split(\",\");\r\n  console.log(cells.join(\" \"));\r\n}\r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "function isPrime(num) {\r\n  if (num <= 1) return false;\r\n  if (num <= 3) return true;\r\n  if (num % 2 === 0 || num % 3 === 0) return false;\r\n\r\n  let i = 5;\r\n  while (i * i <= num) {\r\n    if (num % i === 0 || num % (i + 2) === 0) return false;\r\n    i += 6;\r\n  }\r\n  return true;\r\n}",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "function findprime()\r\n{\r\n let m = 2\r\nfor (let n = 2; n < p ;n++)\r\nif (n % 2 === 1 && n % 3 <= m && n % 1 === 0)  \r\n    console.log(\"isPrime\",n)\r\nelse{(n % 2 === 0 && n % 4 === 0 && n % 3 === 0 && n % 1 === 0)\r\n    console.log(\"isNotPrime\",n);}\r\n\r\n}\r\nfindprime(p = 24)",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "for (let i = 1; i <= 100; i++) {\r\n  if (i % 3 === 0 && i % 5 === 0) {\r\n    console.log(\"Fizz Buzz\");\r\n  } else if (i % 3 === 0) {\r\n    console.log(\"Fizz\");\r\n  } else if (i % 5 === 0) {\r\n    console.log(\"Buzz\");\r\n  } else {\r\n    console.log(i);\r\n  }\r\n};",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "let count = 7\r\nfor(let i = 0; 1 < count; i++){\r\n    console.log(\"hi\")}\r\n// loop in function\r\n    function sayhi(count, Name){\r\n        for(let i = 0; 1 < count; i++){\r\n            console.log(`hi ${Name} `)}\r\n    }\r\n    sayhi(8,\"trina\")",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "For IN Loops",
+            "mode": "md",
+            "outputs": []
+        },
+        {
+            "id": "tmp-4",
+            "name": "",
+            "value": "const Vehs = [\"BMW\", \"Volvo\", \"Saab\", \"Ford\", \"Fiat\", \"Audi\"];\r\n\r\nlet txt = \"\";\r\nfor (let i = 0; i < Vehs.length; i++) {\r\n  txt += Vehs[i] + \"<br>\";\r\n}\r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-5",
+            "name": "",
+            "value": "loop in array \r\n",
+            "mode": "md",
+            "outputs": []
+        },
+        {
+            "id": "tmp-4",
+            "name": "",
+            "value": "const cars = [\"BMW\", \"Volvo\", \"Saab\", \"Ford\", \"Fiat\", \"Audi\"];\r\n\r\nlet text = \"\";\r\nfor (let i = 0; i < cars.length; i++) {\r\n  text += cars[i] + \"<br>\";\r\n}",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-6",
+            "name": "",
+            "value": "let arr = [\"h\", \"p\",\"boosie\"]\r\nconst car = [\"BMW\", \"Volvo\", \"Mini\"];\r\n\r\nlet word = \"\";\r\nfor (let x of car) {\r\n  word += x;\r\n}\r\n",
+            "mode": "js",
+            "outputs": []
+        }
+    ]
+}

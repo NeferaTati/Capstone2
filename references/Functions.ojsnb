@@ -1,0 +1,97 @@
+{
+    "id": "088ab1da-459b-4ac7-a3b2-c0ababbd45e4",
+    "files": [],
+    "nodes": [
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "function reverseString(str)\r\n {\r\nlet revstr = \"\"\r\nlet len = str.length - 1;\r\n  for (let i = len; i >= 0; i--) {\r\nrevstr += str[i];\r\nconsole. log(revstr);\r\n}}",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "const ReverseString = (str) => str.split(\"\"). reverse()-join(\"\");",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "function REverseString(Str)\r\n{\r\nif (Str === \"\")\r\nelse {\r\nreturn REverseString(Str. substr (1)) + Str. charAt(0):\r\nconsole, log(REverseString(\"justyn\" ))\r\n}}",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "function calculateFactorial (num) {\r\n    let acc = 1;\r\n    if (num <= 1) {\r\n    return 1;\r\n    } \r\n    else {\r\n    for (let i = 1; 1 < num; 1++) {\r\n    acc = i;\r\n    }\r\n    return acc} }\r\n\r\n    console. log(calculateFactorial(3));\r\n    ",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "const payrol = ['bitcoin', 'cash', 'coins', 'cheese', 'mulla', 'change', 'bucks', 'dinero', 'money']\r\n\r\nfunction lotr()\r\n{\r\n for (i = 0; i < Str.length; i ++)\r\n    if (str[i].length > long.length )\r\n        {long = str[i]}\r\n\r\n}\r\nfunction lotr(payrol);",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-4",
+            "name": "",
+            "value": "function fizzbuzz (number) {\r\n\r\n    for (let i = 1; i <= number; i++) {\r\n        if (1% 3 === 0 && 1% 5 === 0); {\r\n    console.log(\"fizz buzz\", i);}\r\n\r\n\r\n    else if (1 % 5=== 0);\r\n    console. log(\"buzz\", 1);\r\n\r\n\r\n    else if (i% 3 === 0) {\r\n    console.log(\"fizz\")\r\n}\r\nelse \r\nconsole.log(i);\r\n    }\r\n\r\n}\r\nconsole.log(fizzbuzz (100));",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-1",
+            "name": "",
+            "value": "let csvData = \"ID, Name, Occupation, Age \\\\n42, Bruce, Knight, 41\\\\n57, Bob, Fry Cook, 19\\\\n63, Blaine, Quiz Master, 58\\\\98, Bill, Doctor's Assistant, 26\";\r\n\r\nlet csvArray = csvData.split(\"\\\\n\");\r\nlet numColumns = csvArray[0].split(',').length;\r\n//function w/ .map\r\nlet csv2DArray = csvArray.map(function(row) {\r\n    return row.split(',').map(function(item) {\r\n        return item.trim();\r\n    });\r\n});\r\n\r\nconsole.log(csv2DArray);\r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-2",
+            "name": "",
+            "value": "let arrT = [\"95\",\"2\",\"16\",\"3\",\"53\",\"8\", \"10\",\"37\"]\r\n\r\nfunction bubblesort(arr) \r\n{\r\n    let len = arr.length;\r\n    for (let i = 0; i < len; i++)\r\n      { let key = arr[i];\r\n      let j = i -1 ;\r\n      \r\n        while (j >= 0 && arr[j] > key)\r\n            {arr [j + 1] = arr[j];j--;}\r\n            arr [j + 1 = key]\r\n            }\r\n}\r\n  \r\n      \r\n      \r\n",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-3",
+            "name": "",
+            "value": "function aver(a,b,c){ \r\nlet sum = a + b + c \r\n if ( sum >= 0 ) {\r\n   sum / 3 \r\n }\r\n\r\n return sum / 3\r\n\r\n}\r\n\r\nconsole.log(aver(6,8,19))",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-4",
+            "name": "",
+            "value": "const hype = (t = a**2 + b**2) => (Math.sqrt(t))\r\n\r\nconsole.log(hype(30,20))",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-5",
+            "name": "",
+            "value": "function sumArray(arr) \r\n\r\n{\r\n    let sum = 0; \r\n    arr.forEach(num => {\r\n        sum += num;\r\n    });\r\n    return sum;\r\n}\r\nconsole.log(const sepe =[2,38,94,3,7,20,57,3])",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "const crewsoc[[\"cheese\" \"fubu\" \"green\"],\r\n[\"clothing\", \" freedom\", \"crispy\"], [\"each\", \"forty\" ,\"cranberry\"]]\r\n\r\nfunction alphabetwap(arr) {\r\n    for (let i = 0; i < crewsoc.length; i++) {\r\n        \r\n        let string = crewsoc[i];\r\n        let frst = string.slice(0, 1);\r\n        if (frst === \"p\")\r\n    if (result[frst] )\r\n        {result[frst].push(newlis)}\r\n    return result\r\n            \r\n        //     .slice(0,1) === \"p\") {\r\n        //     newlis.push({\"p\": string});\r\n        // } else if (string.slice(0,1) === \"f\") {\r\n        //     newlis.push({\"f\": string});\r\n        // } else {\r\n        //     newlis.push({\"other\": string}console.log(alphabetwap(crewsoc));\r\n\r\n    }\r\n\r\n\r\n}\r\n        console.log(alphabetwap(crewsoc))",
+            "mode": "js",
+            "outputs": []
+        },
+        {
+            "id": "tmp-0",
+            "name": "",
+            "value": "///date factory\r\n\r\nfunction getDate()\r\n{\r\n\r\nconst date = new date()\r\nconst obj ={\r\n    gethour = date.gethour()\r\n    getmins = date.getminutes()\r\n    getsec = date.getseconds()\r\n    getdate = date.getdate()\r\n    \r\n}\r\nconsole.log(date.gethours(),date.getminutes(),date.getseconds());\r\n\r\n}",
+            "mode": "js",
+            "outputs": []
+        }
+    ]
+}

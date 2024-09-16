@@ -1,0 +1,74 @@
+.home-container {
+    position: relative;
+  }
+  
+  .orbit-header {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .orbit-container {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+  }
+  
+  .website-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .orbit-text {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+  }
+  
+  .orbit-text:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
+  .orbit-text:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+  .orbit-text:nth-child(4) { left: 0; top: 50%; transform: translateY(-50%); }
+  
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  .side-nav {
+    position: fixed;
+    left: 0;
+    top: 300px;
+    width: 200px;
+    height: calc(100vh - 300px);
+    background-color: #f0f0f0;
+    z-index: 1;
+  }
+  
+  .home-content {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  
+  .photo-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .photo-item {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .photo-item img {
+    width: 100%;
+    height: auto;
+  }

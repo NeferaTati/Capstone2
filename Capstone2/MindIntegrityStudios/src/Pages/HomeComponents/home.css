@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'GameFont';
+  src: url('../Components/game-font-7.woff2') format('woff2');
+  /* Add other formats if available */
+}
+
+body {
+  margin-top: 30px;
+  font-family: 'Game Font 7';
+  font-weight: 200;
+}
+
+.home-container {
+    position: relative;
+  }
+  
+  .orbit-header {
+    height: 70vh; /* Increased height to accommodate the full container */
+    position: relative;
+    overflow: visible; /* Changed to visible to show the bottom title */
+  }
+  
+  .orbit-container {
+    position: relative;
+    width: 80%;
+    height: calc(60vh - 30px);
+    margin: 20px auto;
+    border: 1px solid #ccc;
+  }
+  
+  .website-title-top, .website-title-bottom {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    left: 0;
+    width: 100%;
+  }
+  
+  .website-title-top {
+    top: 30px; /* Positioned 1px above the container */
+    animation: moveLeftRight 4s linear infinite;
+  }
+  
+  .website-title-bottom {
+    bottom: -1px; /* Positioned 1px below the container */
+    animation: moveRightLeft 4s linear infinite;
+  }
+  
+  @keyframes moveLeftRight {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(calc(100% - 100vw)); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes moveRightLeft {
+    0% { transform: translateX(calc(100% - 100vw)); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(calc(100% - 100vw)); }
+  }
+  
+  .website-title {
+    font-family: 'Game Font 7', Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase; /* This can help achieve a more square look */
+    letter-spacing: 0.05em; /* Slightly increase spacing between letters */
+  }
+  
+  .website-title span {
+    position: absolute;
+    opacity: 0;
+    animation: fadeInOut 20s linear infinite;
+  }
+  
+  .website-title span:nth-child(1) { animation-delay: 0s; }
+  .website-title span:nth-child(2) { animation-delay: 5s; }
+  .website-title span:nth-child(3) { animation-delay: 10s; }
+
+ 
+
+  
+  .menu {
+    position: fixed;
+    height: 100vh;
+    background: #F9D401;
+    width: 60px;
+    box-shadow: 1px 0 2px rgba(0,0,0,.2);
+    transition: width 0.3s ease;
+  }
+  
+  .menu.expanded {
+    width: 40vw;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Positioned on the right */
+    z-index: 10;
+    background: #333;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .container {
+    width: 90%;
+    margin-left: 10vw;
+    background: #FDFDFD;
+    transition: 1s;
+    transform-origin: left center;
+    color: #D2D2D0;
+  }
+  
+  .content {
+    padding: 100px 20%;
+  }
+  
+  nav {
+    position: absolute;
+    margin-top: 50%;
+    left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    ul {
+      color: white;
+      text-transform: uppercase;
+      list-style-type: none;
+    }
+    li {
+      line-height: 2em;
+      letter-spacing: .3em;
+    }
+    a {
+      font-size: 30px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      &:hover {
+        color: #eee;
+      }
+    }
+  }
+  
+  .menu.expanded nav {
+    opacity: 1;
+  }
+  
+  p {
+    line-height: 1.5em;
+  }
+  
+  h1 {
+    color: #bbb;
+  }
+
+.home-bdy {
+    margin-top: 450px; /* Move HomeBdy down by 250px */
+}

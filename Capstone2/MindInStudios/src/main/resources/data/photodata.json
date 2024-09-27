@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "lone Skeleton",
+    "areaDescription": "Purchase, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/E826C703-1B14-4725-8670-023F063E067A_bonpkc.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Somewhere in Central Park",
+    "areaDescription": "Manhattan, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365250/work/IMG_5196_dcdz0u.heic"
+  },
+  {
+    "id": "3",
+    "title": "Chai in Italy",
+    "areaDescription": "New York City, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365137/work/C6CF3761-D86B-44DB-9981-39DC1093582D_kvbno8.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Nights In Spring",
+    "areaDescription": "Bronx, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365241/work/IMG_4296_tmxpbm.heic"
+  },
+  {
+    "id": "5",
+    "title": "Castles",
+    "areaDescription": "Lyon, France",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365251/work/IMG_1345_ci9ccb.heic"
+  },
+  {
+    "id": "6",
+    "title": "Lovely Daze",
+    "areaDescription": "Lyon, France",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365252/work/IMG_1348_zo8094.jpg"
+  },
+  {
+    "id": "7",
+    "title": "blue grief",
+    "areaDescription": "Fort Lauderdale",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365249/work/IMG_1857_nju9p6.jpg"
+  },
+  {
+    "id": "8",
+    "title": "untitled",
+    "areaDescription": "Florence, Italy",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365253/work/IMG_1689_d76yoc.heic"
+  },
+  {
+    "id": "9",
+    "title": "untitled",
+    "areaDescription": "Downtown Manhattan, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365255/work/IMG_2859_cs0phn.heic"
+  },
+  {
+    "id": "10",
+    "title": "Home",
+    "areaDescription": "Greenburgh, New York",
+    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365255/work/IMG_2498_ciq29e.heic"
+  }
+]

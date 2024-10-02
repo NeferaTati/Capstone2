@@ -1,4 +1,4 @@
-/* ... existing code ... */
+
 
 /* Styles for HomeOrb component */
 .home-orb {
@@ -7,8 +7,8 @@
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: rgba(190, 143, 14, 0.845);
+color:rgba(72, 116, 28, 0.845)
 }
 
 .home-orb__title {
@@ -62,3 +62,13 @@
 }
 
 /* ... existing code ... */
+
+/* Assuming you want to set a variable to green */
+:root {
+  --color-text: green;
+}
+
+/* Applying the variable to an element */
+.some-element {
+  color: var(--color-text);
+}

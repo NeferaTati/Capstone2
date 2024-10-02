@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navigation from '../Navigation';
+import Navigation from '../HomeComponents/Navigation';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 //import { submitContactForm } from '../../../services/api';
 
-function Contact() {
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const ContactUs = () => {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', /* other fields */ });
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,87 +35,54 @@ function Contact() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Header with menu toggle */}
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold">MindIntegrityStudios</Link>
-          <button onClick={toggleMenu} className="md:hidden">
-            {isMenuOpen ? '✕' : '☰'}
-          </button>
-          {/* Desktop menu */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-4">
-              <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-              <li><Link to="/about" className="hover:text-blue-500">About</Link></li>
-              <li><Link to="/contact" className="hover:text-blue-500">Contact</Link></li>
-              <li><Link to="/work" className="hover:text-blue-500">Work</Link></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <nav className="container mx-auto px-4 py-2">
-            <ul className="space-y-2">
-              <li><Link to="/" className="block hover:text-blue-500" onClick={toggleMenu}>Home</Link></li>
-              <li><Link to="/about" className="block hover:text-blue-500" onClick={toggleMenu}>About</Link></li>
-              <li><Link to="/contact" className="block hover:text-blue-500" onClick={toggleMenu}>Contact</Link></li>
-              <li><Link to="/work" className="block hover:text-blue-500" onClick={toggleMenu}>Work</Link></li>
-            </ul>
-          </nav>
-        </div>
-      )}
-
-      {/* Contact form */}
-      // ... existing code ...
-<form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-  <input
-    type="text"
-    name="firstName"
-    value={formData.firstName}
-    onChange={handleInputChange}
-    placeholder="First Name"
-    className="w-full mb-4 p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    name="lastName"
-    value={formData.lastName}
-    onChange={handleInputChange}
-    placeholder="Last Name"
-    className="w-full mb-4 p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="email"
-    name="email"
-    value={formData.email}
-    onChange={handleInputChange}
-    placeholder="Email"
-    className="w-full mb-4 p-2 border border-gray-300 rounded"
-  />
-  <textarea
-    name="description"
-    value={formData.description}
-    onChange={handleInputChange}
-    placeholder="Description"
-    className="w-full mb-4 p-2 border border-gray-300 rounded"
-  ></textarea>
-  <input
-    type="file"
-    name="photos"
-    onChange={handleFileChange}
-    multiple
-    className="w-full mb-4 p-2 border border-gray-300 rounded"
-  />
-  <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-    Submit
-  </button>
-</form>
-</div>
-    );
+    <div>
+    <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">Comission Form</h2> 
+    {/* Contact form */}
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              placeholder="First Name"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              placeholder="Last Name"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              placeholder="Description"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            ></textarea>
+            <input
+              type="file"
+              name="photos"
+              onChange={handleFileChange}
+              multiple
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+              Submit
+            </button>
+          </form>
+      </div>
+  );
 };
 
-export default Contact;
+export default ContactUs;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './home.css';
+
 
 function Navigation() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -18,9 +20,9 @@ function Navigation() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/work">Work</Link></li>
+            <li><Link to="/AboutUs">About</Link></li>
+            <li><Link to="/ContactUs">Contact</Link></li>
+            <li><Link to="/Work">Work</Link></li>
           </ul>
         </nav>
       </div>

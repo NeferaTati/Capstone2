@@ -3,7 +3,7 @@ import EvEmitter from 'ev-emitter';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { preloadImage } from './AboutComponents/imageVideoUtils';
+import { preloadImage } from '../AboutComponents/imageVideoUtils';
 import './HOC.css'
 const HomeOrb = () => {
     let lenis;
@@ -59,19 +59,19 @@ const HomeOrb = () => {
         });
     };
 
-    const imageSrc = './components\photos\IMG_5732_y2mvak.jpg';
-    preloadImage(imageSrc)
-        .then(img => {
-            // Image is preloaded and ready to use
-            document.body.appendChild(img); // Example usage
-        })
-        .catch(error => {
-            console.error('Error preloading image:', error);
-        });
+    // const imageSrc = './components/photos/IMG_5732_y2mvak.jpg';
+    // preloadImage(imageSrc)
+    //     .then(img => {
+    //         // Image is preloaded and ready to use
+    //         document.body.appendChild(img); // Example usage
+    //     })
+    //     .catch(error => {
+    //         console.error('Error preloading image:', error);
+    //     });
 
     return (
         <>
-            <svg>
+            {/* <svg>
                 <clipPath id="clip-1">
                     <text x="0ch" y="0.95em" className="line-1 font-1 size-3">M</text>
                     <text x="1ch" y="0.95em" className="line-1 font-1 size-3">I</text>
@@ -116,7 +116,7 @@ const HomeOrb = () => {
                     <text x="18ch" y="0.95em" className="line-1 font-1 size-3">O</text>
                     <text x="19ch" y="0.95em" className="line-1 font-1 size-3">S</text>
                 </clipPath>
-            </svg>
+            </svg> */}
             <div className="poster poster--half" style={{ clipPath: 'url(#clip-1)', '--offset-x': '10%', '--offset-y': '10%' }}>
                 <div className="poster__inner" style={{ backgroundImage: 'https://res.cloudinary.com/dvvin6oes/image/upload/v1727365242/work/IMG_5732_y2mvak.jpg' }}></div>
             </div>

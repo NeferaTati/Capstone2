@@ -1,0 +1,64 @@
+/* ... existing code ... */
+
+/* Styles for HomeOrb component */
+.home-orb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.home-orb__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: 'blackoutregular', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.home-orb__content {
+    max-width: 800px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.home-orb__link {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.home-orb__link:hover {
+    color: var(--color-link-hover);
+}
+
+/* Ensure ScrollTrigger animations are visible */
+.scroll-trigger {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-trigger--active {
+    opacity: 1;
+}
+
+/* Styles for poster elements */
+.poster {
+    position: relative;
+    width: 50%;
+    height: 50vh;
+    overflow: hidden;
+    margin: 1rem;
+    clip-path: var(--clip-path);
+}
+
+.poster__inner {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: translate(var(--offset-x), var(--offset-y));
+}
+
+/* ... existing code ... */

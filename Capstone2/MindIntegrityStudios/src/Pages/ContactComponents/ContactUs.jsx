@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Navigation from '../Navigation';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 //import { submitContactForm } from '../../../services/api';
 
 function Contact() {
@@ -29,6 +32,11 @@ function Contact() {
       console.error('Error submitting form:', error);
       // Handle error
     }
+  };
+
+  const handleFileChange = (event) => {
+    // Your file handling logic here
+    console.log(event.target.files[0]);
   };
 
   return (
@@ -67,33 +75,52 @@ function Contact() {
       )}
 
       {/* Contact form */}
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            placeholder="First Name"
-            className="w-full mb-4 p-2 border border-gray-300 rounded"
-          />
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            placeholder="Last Name"
-            className="w-full mb-4 p-2 border border-gray-300 rounded"
-          />
-          {/* Add other form fields here */}
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-            Submit
-          </button>
-        </form>
-      </main>
-    </div>
-  );
-}
+      // ... existing code ...
+<form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+  <input
+    type="text"
+    name="firstName"
+    value={formData.firstName}
+    onChange={handleInputChange}
+    placeholder="First Name"
+    className="w-full mb-4 p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    name="lastName"
+    value={formData.lastName}
+    onChange={handleInputChange}
+    placeholder="Last Name"
+    className="w-full mb-4 p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleInputChange}
+    placeholder="Email"
+    className="w-full mb-4 p-2 border border-gray-300 rounded"
+  />
+  <textarea
+    name="description"
+    value={formData.description}
+    onChange={handleInputChange}
+    placeholder="Description"
+    className="w-full mb-4 p-2 border border-gray-300 rounded"
+  ></textarea>
+  <input
+    type="file"
+    name="photos"
+    onChange={handleFileChange}
+    multiple
+    className="w-full mb-4 p-2 border border-gray-300 rounded"
+  />
+  <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+    Submit
+  </button>
+</form>
+</div>
+    );
+};
 
 export default Contact;

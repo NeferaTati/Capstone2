@@ -11,3 +11,13 @@ export {
     lettersAndSymbols,
     preloadImages,
 };
+
+// utils.js
+
+export const preloadImagesUtil = () => {
+    // Your image preloading logic here
+};
+
+export const preloadVideo = () => {
+    // Your video preloading logic here
+};

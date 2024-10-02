@@ -6,7 +6,7 @@
  * @param {string} videoSrc - URL of the video file to preload.
  * @returns {Promise} - Resolves with the video element when the video is fully loaded.
  */
-const preloadVideo = (videoSrc) => {
+export const preloadVideo = (videoSrc) => {
     return new Promise((resolve, reject) => {
         const video = document.createElement('video');
         video.src = videoSrc;
@@ -26,6 +26,28 @@ const preloadVideo = (videoSrc) => {
         // If the video fails to load, reject the promise
         video.onerror = () => {
             reject(new Error('Failed to load video'));
+        };
+    });
+};
+
+/**
+ * @function
+ * @param {string} imageSrc - URL of the image file to preload.
+ * @returns {Promise} - Resolves with the image element when the image is fully loaded.
+ */
+export const preloadImage = (imageSrc) => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = imageSrc;
+
+        // Resolve when the image is fully loaded
+        img.onload = () => {
+            resolve(img);
+        };
+
+        // Reject if the image fails to load
+        img.onerror = () => {
+            reject(new Error('Failed to load image'));
         };
     });
 };

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FormSubmissionRepo extends JpaRepository<FormSubmission, Integer> {
-    // Additional query methods can be defined here if needed
+    // No need for saveSubmission; use save() from JpaRepository
 }

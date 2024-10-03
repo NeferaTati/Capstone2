@@ -1,11 +1,13 @@
 package com.MindinStudios.Backend.common;
 
-//import com.MindinStudios.Backend.Model.Paintings;
+
+
 import com.MindinStudios.Backend.Model.PaintingsC;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PaintingsRepo {
@@ -16,46 +18,56 @@ public class PaintingsRepo {
         this.jdbcClient = jdbcClient;
     }
 
-    public static int count() {
-        return 0;
+    public int count() {
+        return jdbcClient.sql("SELECT COUNT(*) FROM paintings").query(Integer.class).single();
     }
 
-    public static void saveAll(List<PaintingsC> students) {
+    public List<PaintingsC> findAll() {
+        return jdbcClient.sql("SELECT * FROM paintings").query(PaintingsC.class).list();
     }
 
-    public List<Paintings> findAll(){
-        return jdbcClient.sql("SELECT * FROM workdirectory").query(Paintings.class).list();
-    }
-
-    public void create(Paintings painting){
-
-        jdbcClient.sql("INSERT INTO workdirectory (id, title, description, materials, image_url) VALUES (?, ?, ?, ?, ?)")
-                .params(painting.id())
-                .params(painting.title())
-                .params(painting.materials())
-                .params(painting.image_url())
+    public void create(PaintingsC painting) {
+        jdbcClient.sql("INSERT INTO paintings (id, title, materials, image_url) VALUES (?, ?, ?, ?)")
+                .params(painting.getId(), painting.getTitle(), painting.getMaterials(), painting.getImage_url())
                 .update();
     }
 
-    public void update(Paintings painting, Integer id){
-        jdbcClient.sql("UPDATE workdirectory SET title = :title," +
-                        " description = :description, materials = :materials, image_url " +
-                        "= :image_url WHERE id = :id")
+    public void update(PaintingsC painting, Integer id) {
+        jdbcClient.sql("UPDATE paintings SET title = :title, materials = :materials, image_url = :image_url WHERE id = :id")
                 .param("id", id)
-                .param("title", painting.title())
-                .param("materials", painting.materials())
-                .param("image_url", painting.image_url())
+                .param("title", painting.getTitle())
+                .param("materials", painting.getMaterials())
+                .param("image_url", painting.getImage_url())
                 .update();
     }
 
-
-    public void DeleteById(Integer id) {
-   return ;
-
-
+    public void deleteById(Integer id) {
+        int rowsAffected = jdbcClient.sql("DELETE FROM paintings WHERE id = ?")
+                .param(id)
+                .update();
+        if (rowsAffected == 0) {
+            throw new RuntimeException("No painting found with id: " + id);
+        }
     }
 
-    public PaintingsC save(PaintingsC entity) {
+    public Object saveAll(List<PaintingsC> paintingsList) {
+        
         return null;
-    }}
+    }
 
+    public PaintingsC save(PaintingsC painting) {
+        if (painting.getId() == null) {
+            create(painting);
+        } else {
+            update(painting, painting.getId());
+        }
+        return painting;
+    }
+
+    public Optional<Object> findById(Integer id) {
+        return Optional.of(jdbcClient.sql("SELECT * FROM paintings WHERE id =?")
+                .param(id)
+                .query(PaintingsC.class));
+
+    }
+}

@@ -5,7 +5,7 @@ import Work from "./Pages/WorkComponents/Work";
 import { Routes, Route } from 'react-router-dom';
 // import AppRoutes from "./Routes";
 
-function App() {
+function App(){
   return (
     <Routes>
       <Route path="/" element={<Home/>} />

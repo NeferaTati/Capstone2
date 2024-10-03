@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PhotosRepo {
@@ -44,8 +45,8 @@ public class PhotosRepo {
     public void DeleteById(Integer id) {
     }
 
-    public long count() {
-        return;
+    public Integer count() {
+        return 0;// change later
     }
 
     public void saveAll(List<PhotosC> photos) {
@@ -53,13 +54,30 @@ public class PhotosRepo {
 
     }
 
-    public PhotosC save(PhotosC photo) {
+    public PhotosC save(Object photo) {
 
         return null;
     }
 
     public boolean existsById(Integer id) {
             return false;
+    }
+
+    public void deleteById(Integer id) {
+        int rowsAffected = jdbcClient.sql("DELETE FROM digital_media_and_videos WHERE id = ?")
+                .param(id)
+                .update();
+        if (rowsAffected == 0) {
+            throw new RuntimeException("No video found with id: " + id);
+        }
+}
+
+    public Optional<Object> findById(Integer id) {
+        return null;
+    }
+
+    public void delete(Object photo) {
+
     }
 }
 

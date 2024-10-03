@@ -1,37 +1,63 @@
 package com.MindinStudios.Backend.controller;
+
 import com.MindinStudios.Backend.Model.DMVideos;
 import com.MindinStudios.Backend.common.DMVideosRepo;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@CrossOrigin
 @RestController
+@RequestMapping("/api/dmvideos")
 public class DMVController {
 
-    private final DMVideosRepo dmRepo;
+    private final DMVideosRepo dmVideosRepo;
 
-    public DMVController(DMVideosRepo dmRepo) {
-        this.dmRepo = dmRepo;
+    @Autowired
+    public DMVController(DMVideosRepo dmVideosRepo) {
+        this.dmVideosRepo = dmVideosRepo;
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<List<DMVideos>> test() {
-        List<DMVideos> videos = dmRepo.findAll();
+    @GetMapping
+    public ResponseEntity<List<DMVideos>> getAllVideos() {
+        List<DMVideos> videos = dmVideosRepo.findAll();
         return ResponseEntity.ok(videos);
     }
 
-    // Delete a video by ID
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping ("/{id}")
-    public void deleteVideo(@PathVariable Integer id) {
-        dmRepo.deleteById(id); // Ensure the method name matches your repository
+    @GetMapping("/{id}")
+    public ResponseEntity<DMVideos> getVideoById(@PathVariable Integer id) {
+        return dmVideosRepo.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public ResponseEntity<DMVideos> createVideo(@RequestBody DMVideos video) {
+        DMVideos savedVideo = dmVideosRepo.save(video);
+        return ResponseEntity.ok(savedVideo);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DMVideos> updateVideo(@PathVariable Integer id, @RequestBody DMVideos videoDetails) {
+        return dmVideosRepo.findById(id)
+                .map(existingVideo -> {
+                    existingVideo.setTitle(videoDetails.getTitle());
+                    existingVideo.setDescription(videoDetails.getDescription());
+                    existingVideo.setIsAVideo(videoDetails.getIsAVideo());
+                    existingVideo.setImage_url(videoDetails.getImage_url());
+                    DMVideos updatedVideo = dmVideosRepo.save(existingVideo);
+                    return ResponseEntity.ok(updatedVideo);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteVideo(@PathVariable Integer id) {
+        return dmVideosRepo.findById(id)
+                .map(video -> {
+                    dmVideosRepo.delete(video);
+                    return ResponseEntity.ok().<Void>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }

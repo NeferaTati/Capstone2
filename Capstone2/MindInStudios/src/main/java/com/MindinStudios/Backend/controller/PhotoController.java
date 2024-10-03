@@ -1,40 +1,69 @@
 package com.MindinStudios.Backend.controller;
+
 import com.MindinStudios.Backend.Model.PhotosC;
 import com.MindinStudios.Backend.common.Photos;
 import com.MindinStudios.Backend.common.PhotosRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api/photos")
+@RequiredArgsConstructor
 public class PhotoController {
 
     private final PhotosRepo photosRepo;
-    private List<com.MindinStudios.Backend.Model.PhotosC> PhotosC;
 
-    public PhotoController(PhotosRepo photosRepo) {
-        this.photosRepo = photosRepo;
+    @GetMapping
+    public ResponseEntity<List<Photos>> getAllPhotos() {
+        List<Photos> photos = photosRepo.findAll();
+        return ResponseEntity.ok(photos);
     }
 
-    @CrossOrigin
-    @GetMapping("/test")
-    public ResponseEntity<List<PhotosC>> test() {
-        List<Photos> Photos = photosRepo.findAll();
-        return ResponseEntity.ok(PhotosC);
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getPhotoById(@PathVariable Integer id) {
+        return photosRepo.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-    // Delete a Timesheet
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
+    @PostMapping
+    public ResponseEntity<PhotosC> createPhoto(@RequestBody Photos photo) {
+        PhotosC savedPhoto = photosRepo.save(photo);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPhoto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PhotosC> updatePhoto(@PathVariable Integer id, @RequestBody Photos photoDetails) {
+        return photosRepo.findById(id)
+                .map(existingPhoto -> {
+                    existingPhoto.equals(photoDetails.getTitle());
+                    existingPhoto.getClass();
+                    existingPhoto.getClass();
+                    PhotosC updatedPhoto = photosRepo.save(existingPhoto);
+                    return ResponseEntity.ok(updatedPhoto);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @DeleteMapping("/{id}")
-    void deleteTimesheet(@PathVariable Integer id){
+    public ResponseEntity<Void> deletePhoto(@PathVariable Integer id) {
+        return photosRepo.findById(id)
+                .map(photo -> {
+                    photosRepo.delete(photo);
+                    return ResponseEntity.noContent().<Void>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 
-        photosRepo.DeleteById(id);
+    // Keep the test endpoint if you still need it
+    @GetMapping("/test")
+    public ResponseEntity<List<Photos>> test() {
+        List<Photos> photos = photosRepo.findAll();
+        return ResponseEntity.ok(photos);
     }
 }

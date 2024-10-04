@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@font-face {
+  font-family: 'GameFont';
+  src: url('/fonts/game-font-7.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .card {
 	display: grid;
 	grid-template-rows: auto 1fr auto;

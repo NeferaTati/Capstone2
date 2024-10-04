@@ -14,9 +14,6 @@ public class DMVideos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;  // Changed to Integer
-
-    @JsonProperty("IsAVideo")
-    @Column(name = "is_a_video")
     private Boolean isAVideo;
 
     private String title;
@@ -26,21 +23,6 @@ public class DMVideos {
     @Column(name = "image_url")
     private String imageUrl;
 
-    // Lombok's @Data annotation will generate getters and setters,
-    // but we can explicitly define getId() if needed:
-    public Integer getId() {
-        return id;
-    }
+    private  String materials;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getImage_url() {
-        return null;
-    }
-
-    public void setImage_url(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }

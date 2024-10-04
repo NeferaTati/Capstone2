@@ -17,15 +17,15 @@ import java.io.InputStream;
 import java.util.List;
 
 @Configuration
-public class DataLoader implements CommandLineRunner {
+public class RunJsonDataLoader implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
+    private static final Logger logger = LoggerFactory.getLogger(RunJsonDataLoader.class);
     private final PaintingsRepo paintingsRepo;
     private final PhotosRepo photosRepo;
     private final DMVideosRepo dmVideosRepo;
     private final ObjectMapper objectMapper;
 
-    public DataLoader(PaintingsRepo paintingsRepo,
+    public RunJsonDataLoader(PaintingsRepo paintingsRepo,
                       PhotosRepo photosRepo,
                       DMVideosRepo dmVideosRepo,
                       ObjectMapper objectMapper) {

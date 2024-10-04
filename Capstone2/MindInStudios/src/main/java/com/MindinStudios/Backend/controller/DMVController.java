@@ -44,7 +44,7 @@ public class DMVController {
                     existingVideo.setTitle(videoDetails.getTitle());
                     existingVideo.setDescription(videoDetails.getDescription());
                     existingVideo.setIsAVideo(videoDetails.getIsAVideo());
-                    existingVideo.setImage_url(videoDetails.getImage_url());
+                    existingVideo.setImageUrl(videoDetails.getImageUrl());
                     DMVideos updatedVideo = dmVideosRepo.save(existingVideo);
                     return ResponseEntity.ok(updatedVideo);
                 })

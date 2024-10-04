@@ -1,4 +1,4 @@
-package service;
+package com.MindinStudios.Backend.service;
 
 import com.MindinStudios.Backend.Model.DMVideos; // JPA entity
 import com.MindinStudios.Backend.common.DMVideosRepo; // Repository

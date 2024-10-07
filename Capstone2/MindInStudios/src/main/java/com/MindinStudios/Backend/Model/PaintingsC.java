@@ -17,6 +17,6 @@ public class PaintingsC {
     private Integer id;
     private String title;
     private String materials;
-    private String image_url;
+    private String imageUrl;
 
 }

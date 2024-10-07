@@ -38,7 +38,7 @@ public class DMVideosService {
     // Update an existing video
     public DMVideos update(DMVideos video, Integer id) {
         // Check if the video exists before updating
-        if (!dmVideosRepo.existsById(id)) {
+        if (dmVideosRepo.existsById(id)) {
             throw new IllegalArgumentException("Video with ID " + id + " does not exist.");
         }
         video.setId(id); // Set the ID for the update
@@ -47,7 +47,7 @@ public class DMVideosService {
 
     // Delete a video by ID
     public void deleteById(Integer id) {
-        if (!dmVideosRepo.existsById(id)) {
+        if (dmVideosRepo.existsById(id)) {
             throw new IllegalArgumentException("Video with ID " + id + " does not exist.");
         }
         dmVideosRepo.deleteById(id);

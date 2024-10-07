@@ -19,8 +19,6 @@ public class DMVideos {
     private String title;
     private String description;
 
-    @JsonProperty("image_url")
-    @Column(name = "image_url")
     private String imageUrl;
 
     private  String materials;

@@ -1,7 +1,6 @@
 package com.MindinStudios.Backend.controller;
 
 import com.MindinStudios.Backend.Model.PhotosC;
-import com.MindinStudios.Backend.common.Photos;
 import com.MindinStudios.Backend.common.PhotosRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,26 +18,25 @@ public class PhotoController {
     private final PhotosRepo photosRepo;
 
     @GetMapping
-    public ResponseEntity<List<Photos>> getAllPhotos() {
-        List<Photos> photos = photosRepo.findAll();
+    public ResponseEntity<List<PhotosC>> getAllPhotos() {
+        List<PhotosC> photos = photosRepo.findAll();
         return ResponseEntity.ok(photos);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getPhotoById(@PathVariable Integer id) {
-        return photosRepo.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public PhotosC getPhotoById(@PathVariable Integer id) {
+        PhotosC photo = photosRepo.findById(id).get();
+        return photo;
     }
 
     @PostMapping
-    public ResponseEntity<PhotosC> createPhoto(@RequestBody Photos photo) {
+    public ResponseEntity<PhotosC> createPhoto(@RequestBody PhotosC photo) {
         PhotosC savedPhoto = photosRepo.save(photo);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPhoto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PhotosC> updatePhoto(@PathVariable Integer id, @RequestBody Photos photoDetails) {
+    public ResponseEntity<PhotosC> updatePhoto(@PathVariable Integer id, @RequestBody PhotosC photoDetails) {
         return photosRepo.findById(id)
                 .map(existingPhoto -> {
                     existingPhoto.equals(photoDetails.getTitle());
@@ -62,8 +60,8 @@ public class PhotoController {
 
     // Keep the test endpoint if you still need it
     @GetMapping("/test")
-    public ResponseEntity<List<Photos>> test() {
-        List<Photos> photos = photosRepo.findAll();
+    public ResponseEntity<List<PhotosC>> test() {
+        List<PhotosC> photos = photosRepo.findAll();
         return ResponseEntity.ok(photos);
     }
 }

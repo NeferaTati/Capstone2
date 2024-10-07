@@ -1,121 +1,88 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-//import { shuffleChars } from '../components/textshuffle';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Navigation from '../HomeComponents/Navigation';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Use shuffleChars in your page component
-// function ContactUs() {
-//   const [isExpanded, setIsExpanded] = useState(false);
+//import { submitContactForm } from '../../../services/api';
 
-//   const toggleMenu = () => {
-//     setIsExpanded(!isExpanded);
-//   };
+const ContactUs = () => {
+  const [formData, setFormData] = useState({ firstName: '', lastName: '', /* other fields */ });
 
-//   return (
-//     <>
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
-// <button className="menu-toggle" onClick={toggleMenu}>
-//         ☰
-//       </button>
-//       import React, { useState } from 'react';
-// import axios from 'axios';
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await submitContactForm(formData);
+      console.log('Form submitted successfully:', response);
+      // Handle successful submission
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error
+    }
+  };
 
-// const ContactUs = () => {
-//     const [formData, setFormData] = useState({
-//         firstName: '',
-//         lastName: '',
-//         phoneNumber: '',
-//         message: '',
-//         additionalFiles: null, // For file uploads
-//     });
+  const handleFileChange = (event) => {
+    // Your file handling logic here
+    console.log(event.target.files[0]);
+  };
 
-//     const handleChange = (e) => {
-//         const { name, value } = e.target;
-//         setFormData({ ...formData, [name]: value });
-//     };
+  return (
+    <div>
+    <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">Comission Form</h2> 
+    {/* Contact form */}
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+              placeholder="First Name"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleInputChange}
+              placeholder="Last Name"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              placeholder="Description"
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            ></textarea>
+            <input
+              type="file"
+              name="photos"
+              onChange={handleFileChange}
+              multiple
+              className="w-full mb-4 p-2 border border-gray-300 rounded"
+            />
+            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+              Submit
+            </button>
+          </form>
+      </div>
+  );
+};
 
-//     const handleFileChange = (e) => {
-//         setFormData({ ...formData, additionalFiles: e.target.files });
-//     };
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-        
-//         const formDataToSend = new FormData();
-//         formDataToSend.append('firstName', formData.firstName);
-//         formDataToSend.append('lastName', formData.lastName);
-//         formDataToSend.append('phoneNumber', formData.phoneNumber);
-//         formDataToSend.append('message', formData.message);
-        
-//         // Append files if any
-//         if (formData.additionalFiles) {
-//             for (let i = 0; i < formData.additionalFiles.length; i++) {
-//                 formDataToSend.append('additionalFiles', formData.additionalFiles[i]);
-//             }
-//         }
-
-//         try {
-//             const response = await axios.post('http://localhost:8080/api/form/submit', formDataToSend, {
-//                 headers: {
-//                     'Content-Type': 'multipart/form-data',
-//                 },
-//             });
-//             console.log('Form submitted successfully:', response.data);
-//             // Reset form or show success message
-//         } catch (error) {
-//             console.error('Error submitting form:', error);
-//         }
-//     };
-
-//     return (
-//         <div className="contact-us">
-//             <h2>Contact Us</h2>
-//             <form onSubmit={handleSubmit}>
-//                 <input
-//                     type="text"
-//                     name="firstName"
-//                     placeholder="First Name"
-//                     value={formData.firstName}
-//                     onChange={handleChange}
-//                     required
-//                 />
-//                 <input
-//                     type="text"
-//                     name="lastName"
-//                     placeholder="Last Name"
-//                     value={formData.lastName}
-//                     onChange={handleChange}
-//                     required
-//                 />
-//                 <input
-//                     type="tel"
-//                     name="phoneNumber"
-//                     placeholder="Phone Number"
-//                     value={formData.phoneNumber}
-//                     onChange={handleChange}
-//                     required
-//                 />
-//                 <textarea
-//                     name="message"
-//                     placeholder="Your message..."
-//                     value={formData.message}
-//                     onChange={handleChange}
-//                     required
-//                 />
-//                 <input
-//                     type="file"
-//                     name="additionalFiles"
-//                     onChange={handleFileChange}
-//                     multiple // Allow multiple file uploads
-//                 />
-//                 <button type="submit">Submit</button>
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default ContactUs;
-
-
-
-// export default ContactUs;
+export default ContactUs;

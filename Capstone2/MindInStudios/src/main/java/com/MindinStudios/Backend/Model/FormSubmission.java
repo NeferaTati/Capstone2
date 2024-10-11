@@ -18,8 +18,7 @@ public class FormSubmission {
 
     private String firstName;
     private String lastName;
-    private String phoneNumber;
+    private String email;
     private String textParagraph;
-    private String additionalFiles; // Specify if you need any additional files
-    private String photoUrl; // URL or path to the uploaded photo
+    private String imageUrl; // URL or path to the uploaded photo
 }

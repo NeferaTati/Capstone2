@@ -1,5 +1,6 @@
 package com.MindinStudios.Backend.config;
-
+import com.MindinStudios.Backend.Model.FormSubmission;
+import com.MindinStudios.Backend.common.FormSubmissionRepo;
 import com.MindinStudios.Backend.Model.PaintingsC;
 import com.MindinStudios.Backend.Model.PhotosC;
 import com.MindinStudios.Backend.Model.DMVideos;
@@ -24,8 +25,10 @@ public class RunJsonDataLoader implements CommandLineRunner {
     private final PhotosRepo photosRepo;
     private final DMVideosRepo dmVideosRepo;
     private final ObjectMapper objectMapper;
+    private final FormSubmissionRepo formSubmissionRepo;
 
     public RunJsonDataLoader(PaintingsRepo paintingsRepo,
+                             FormSubmissionRepo formSubmissionRepo,
                       PhotosRepo photosRepo,
                       DMVideosRepo dmVideosRepo,
                       ObjectMapper objectMapper) {
@@ -33,6 +36,7 @@ public class RunJsonDataLoader implements CommandLineRunner {
         this.photosRepo = photosRepo;
         this.dmVideosRepo = dmVideosRepo;
         this.objectMapper = objectMapper;
+        this.formSubmissionRepo = formSubmissionRepo;
     }
 
     @Override
@@ -40,6 +44,7 @@ public class RunJsonDataLoader implements CommandLineRunner {
         new PhotosLoader().loadPhotos();
         new PaintingsLoader().loadPaintings();
         new DMVideosLoader().loadVideos();
+        new FormSubmissionLoader().loadFormSubmissions();
     }
 
     private class PhotosLoader {
@@ -104,6 +109,27 @@ public class RunJsonDataLoader implements CommandLineRunner {
                 }
             } else {
                 logger.info("Videos already loaded. Count: {}", dmVideosRepo.count());
+            }
+        }
+    }
+    private class FormSubmissionLoader {
+        void loadFormSubmissions() {
+            if (formSubmissionRepo.count() == 0) {
+                try {
+                    InputStream inputStream = getClass().getResourceAsStream("/data/Form.json");
+                    if (inputStream == null) {
+                        throw new RuntimeException("File not found: /data/Form.json");
+                    }
+                    List<FormSubmission> formSubmissionList = objectMapper.readValue(inputStream, new TypeReference<List<FormSubmission>>() {});
+                    logger.info("Parsed Form Submissions JSON content: {}", objectMapper.writeValueAsString(formSubmissionList));
+                    formSubmissionRepo.saveAll(formSubmissionList);
+                    logger.info("Form Submissions loaded successfully. Count: {}", formSubmissionList.size());
+                } catch (Exception e) {
+                    logger.error("Error loading form submissions data from JSON file", e);
+                    throw new RuntimeException("Unable to load form submissions data from JSON file", e);
+                }
+            } else {
+                logger.info("Form Submissions already loaded. Count: {}", formSubmissionRepo.count());
             }
         }
     }

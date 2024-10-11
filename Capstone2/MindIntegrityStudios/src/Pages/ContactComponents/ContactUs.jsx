@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Navigation from '../HomeComponents/Navigation';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import axios from 'axios';
+import RevealLinks from './Contactfooter';
 
-//import { submitContactForm } from '../../../services/api';
+const videoUrl = 'https://res.cloudinary.com/dvvin6oes/video/upload/v1727365109/work/IMG_0220_zz0pli.mp4';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({ firstName: '', lastName: '', /* other fields */ });
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    textParagraph: '',
+    imageUrl: '',
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,69 +24,96 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await submitContactForm(formData);
-      console.log('Form submitted successfully:', response);
-      // Handle successful submission
+      const response = await axios.post('http://localhost:8080/api/form', formData);
+      console.log('Form submitted successfully:', response.data);
+      setFormData({ firstName: '', lastName: '', email: '', textParagraph: '', imageUrl: '' });
+      // Add a success message or notification here
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Handle error
+      // Add an error message or notification here
     }
   };
 
-  const handleFileChange = (event) => {
-    // Your file handling logic here
-    console.log(event.target.files[0]);
-  };
-
   return (
-    <div>
-    <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">Comission Form</h2> 
-    {/* Contact form */}
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-      <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              placeholder="First Name"
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              placeholder="Last Name"
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Email"
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
-            />
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              placeholder="Description"
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
-            ></textarea>
-            <input
-              type="file"
-              name="photos"
-              onChange={handleFileChange}
-              multiple
-              className="w-full mb-4 p-2 border border-gray-300 rounded"
-            />
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-              Submit
-            </button>
-          </form>
+    <div className="relative">
+      <div className="relative min-h-screen overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src={videoUrl} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="relative z-10 bg-amber-600 bg-opacity-10 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md mx-auto">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-8">Commission Form</h2>
+            <form onSubmit={handleSubmit} className="bg-white bg-opacity-90 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+              <div className="mb-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  placeholder="First Name"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  placeholder="Last Name"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Email"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="mb-6">
+                <textarea
+                  name="textParagraph"
+                  value={formData.textParagraph}
+                  onChange={handleInputChange}
+                  placeholder="Description"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
+                ></textarea>
+              </div>
+              <div className="mb-6">
+                <input
+                  type="url"
+                  name="imageUrl"
+                  value={formData.imageUrl}
+                  onChange={handleInputChange}
+                  placeholder="Image URL"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <RevealLinks />
       </div>
+    </div>
   );
-};
+}
 
 export default ContactUs;

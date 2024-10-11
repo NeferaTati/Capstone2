@@ -57,3 +57,12 @@ body, html {
 section:nth-child(odd) {
     justify-content: flex-end;
 }
+.work-button {
+    margin-right: 10px; /* Adds space to the right of each button */
+    margin-bottom: 10px; /* Adds space below each button */
+    padding: 10px 15px; /* Adds internal spacing within the button */
+  }
+  
+  .work-button h2 {
+    margin: 0; /* Removes default margin from h2 */
+  }

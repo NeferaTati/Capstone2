@@ -1,10 +1,48 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import './work.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Work = () => {
     const canvasRef = useRef(null);
+    const [paintings, setPaintings] = useState([]);
+    const [work, setWork] = useState([])
+
+    useEffect(() => {
+        fetchPaintings();
+    }, []);
+
+    const fetchPaintings = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/paintings');
+            setWork(response.data);
+        } catch (error) {
+            console.error('Error fetching paintings:', error);
+        }
+    };
+    const fetchPhotos = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/photos');
+            setWork(response.data);
+        } catch (error) {
+            console.error('Error fetching photos:', error);
+        }
+    };
+
+    const fetchDigitalMedia = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/dmvideos');
+            setWork(response.data);
+        } catch (error) {
+            console.error('Error fetching media:', error);
+        }
+    };
+
+
+    
+   
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -174,29 +212,34 @@ const Work = () => {
             window.removeEventListener('mousemove', null);
         };
     }, []);
-
+    console.log(work)
     return (
         <>
-            <canvas ref={canvasRef} className="webgl"></canvas>
-            <div className="work-container">
+             <canvas ref={canvasRef} className="webgl"></canvas>
+            <div className ="work-container" >
+                
                 <h1 className="work-title">My Portfolio</h1>
-                {[
-                    "Welcome to My Portfolio",
-                    "About Me",
-                    "Skills",
-                    "Projects",
-                    "Experience",
-                    "Education",
-                    "Achievements",
-                    "Testimonials",
-                    "Blog",
-                    "Contact Me"
-                ].map((title, index) => (
-                    <section key={index} className="work-section">
-                        <h2>{title}</h2>
-                        <p>This is the content for {title.toLowerCase()}.</p>
-                    </section>
-                ))}
+                
+                {/* Paintings Section */}
+                <section className="work-section " >
+                    
+                     <button onClick={fetchPaintings} className="work-button"> <h2 className="font bold grid items- start-0" >Paintings  </h2></button>
+                    
+                    <button onClick={fetchPhotos}  className="work-button"><h2> Photos </h2></button>
+
+                    <button onClick={fetchDigitalMedia}  className="work-button"><h2> Digital Media</h2></button>
+
+                    <div className="paintings-grid">
+                        {work.map((painting, index) => (
+                         <div key={index} className="painting-item">
+                             <Link to={`/item/${painting.id}`}>
+                                <img src={painting.imageUrl} alt={painting.title} />
+                                <h3>{painting.title}</h3>
+                                <p>{painting.description}</p></Link>
+                            </div>
+                        ))}
+                    </div>
+                </section>
             </div>
         </>
     );

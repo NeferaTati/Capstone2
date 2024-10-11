@@ -34,7 +34,7 @@ public class DMVController {
     }
 
     @PostMapping("/addImage")
-    DMVideos createImages(@RequestBody DMVideos dmVideos) {
+    public DMVideos createImages(@RequestBody DMVideos dmVideos) {
         return dmVideosRepo.save(dmVideos);
     }
 

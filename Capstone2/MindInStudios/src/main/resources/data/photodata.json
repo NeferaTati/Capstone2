@@ -9,7 +9,7 @@
     "id": "2",
     "title": "Somewhere in Central Park",
     "areaDescription": "Manhattan, New York",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365250/work/IMG_5196_dcdz0u.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621406/IMG_5196_fhezic.jpg"
   },
   {
     "id": "3",
@@ -21,13 +21,13 @@
     "id": "4",
     "title": "Nights In Spring",
     "areaDescription": "Bronx, New York",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365241/work/IMG_4296_tmxpbm.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621400/IMG_4296_i1zltv.jpg"
   },
   {
     "id": "5",
     "title": "Castles",
     "areaDescription": "Lyon, France",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365251/work/IMG_1345_ci9ccb.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621409/IMG_1345_fbl5eh.jpg"
   },
   {
     "id": "6",
@@ -45,18 +45,18 @@
     "id": "8",
     "title": "untitled",
     "areaDescription": "Florence, Italy",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365253/work/IMG_1689_d76yoc.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621393/IMG_1689_uzsmrt.jpg"
   },
   {
     "id": "9",
     "title": "untitled",
     "areaDescription": "Downtown Manhattan, New York",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365255/work/IMG_2859_cs0phn.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621415/IMG_0579_ypzt0t.jpg"
   },
   {
     "id": "10",
     "title": "Home",
     "areaDescription": "Greenburgh, New York",
-    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365255/work/IMG_2498_ciq29e.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1728621397/IMG_2498_swqbuh.jpg"
   }
 ]

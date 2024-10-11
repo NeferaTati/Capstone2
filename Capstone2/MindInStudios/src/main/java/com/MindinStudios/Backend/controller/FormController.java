@@ -19,13 +19,13 @@ public class FormController {
         this.formSubmissionService = formSubmissionService;
     }
 
-    @PostMapping("/submit")
+    @PostMapping
     public ResponseEntity<FormSubmission> submitForm(@RequestBody FormSubmission submission) {
         FormSubmission savedSubmission = formSubmissionService.saveSubmission(submission);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSubmission);
     }
 
-    @GetMapping("/submissions")
+    @GetMapping
     public ResponseEntity<List<FormSubmission>> getAllSubmissions() {
         List<FormSubmission> submissions = formSubmissionService.getAllSubmissions();
         return ResponseEntity.ok(submissions);

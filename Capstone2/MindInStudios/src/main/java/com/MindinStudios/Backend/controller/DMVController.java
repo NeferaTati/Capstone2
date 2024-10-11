@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/dmvideos")
+@CrossOrigin
 public class DMVController {
 
     private final DMVideosRepo dmVideosRepo;
@@ -18,46 +19,52 @@ public class DMVController {
         this.dmVideosRepo = dmVideosRepo;
     }
 
+    // GET ALL DATA
     @GetMapping
-    public ResponseEntity<List<DMVideos>> getAllVideos() {
-        List<DMVideos> videos = dmVideosRepo.findAll();
-        return ResponseEntity.ok(videos);
+    public ResponseEntity<List<DMVideos>> test() {
+        List<DMVideos> dmVideos = dmVideosRepo.findAll();
+        return ResponseEntity.ok(dmVideos);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DMVideos> getVideoById(@PathVariable Integer id) {
-        return dmVideosRepo.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    // GET by ID
+    @GetMapping("/getImage/{id}")
+    public DMVideos getImages(@PathVariable Integer id) {
+        DMVideos dmVideos = dmVideosRepo.findById(id).get();
+        return dmVideos;
     }
 
-    @PostMapping
-    public ResponseEntity<DMVideos> createVideo(@RequestBody DMVideos video) {
-        DMVideos savedVideo = dmVideosRepo.save(video);
-        return ResponseEntity.ok(savedVideo);
+    @PostMapping("/addImage")
+    DMVideos createImages(@RequestBody DMVideos dmVideos) {
+        return dmVideosRepo.save(dmVideos);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<DMVideos> updateVideo(@PathVariable Integer id, @RequestBody DMVideos videoDetails) {
-        return dmVideosRepo.findById(id)
-                .map(existingVideo -> {
-                    existingVideo.setTitle(videoDetails.getTitle());
-                    existingVideo.setDescription(videoDetails.getDescription());
-                    existingVideo.setIsAVideo(videoDetails.getIsAVideo());
-                    existingVideo.setImageUrl(videoDetails.getImageUrl());
-                    DMVideos updatedVideo = dmVideosRepo.save(existingVideo);
-                    return ResponseEntity.ok(updatedVideo);
-                })
-                .orElse(ResponseEntity.notFound().build());
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteImages(@PathVariable Integer id) {
+        dmVideosRepo.deleteById(id);
+        return ResponseEntity.ok().body("Item has been deleted");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVideo(@PathVariable Integer id) {
-        return dmVideosRepo.findById(id)
-                .map(video -> {
-                    dmVideosRepo.delete(video);
-                    return ResponseEntity.ok().<Void>build();
-                })
-                .orElse(ResponseEntity.notFound().build());
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<?> editImages(@PathVariable Integer id, @RequestBody DMVideos dmVideos) {
+        DMVideos findImage = dmVideosRepo.findById(id).orElse(null);
+
+
+        if (findImage.equals(null)){
+            return ResponseEntity.ok().body("Image with the id given is not found in database");
+        }
+
+
+
+        findImage.setIsAVideo(dmVideos.getIsAVideo());
+        findImage.setTitle((dmVideos.getTitle()));
+        findImage.setDescription((dmVideos.getDescription()));
+        findImage.setImageUrl((dmVideos.getImageUrl()));
+        findImage.setMaterials(dmVideos.getMaterials());
+
+
+        DMVideos savedDmvideo  = dmVideosRepo.save(findImage);
+
+        return ResponseEntity.ok().body(savedDmvideo);
     }
 }

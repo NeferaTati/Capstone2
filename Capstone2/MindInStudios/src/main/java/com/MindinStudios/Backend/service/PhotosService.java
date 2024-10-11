@@ -1,7 +1,6 @@
 package com.MindinStudios.Backend.service;
 
 import com.MindinStudios.Backend.Model.PhotosC; // JPA entity
-import com.MindinStudios.Backend.common.Photos;
 import com.MindinStudios.Backend.common.PhotosRepo; // Repository
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class PhotosService {
     }
 
     // Find all photos
-    public List<Photos> findAll() {
+    public List<PhotosC> findAll() {
         return photosRepo.findAll();
     }
 
@@ -39,7 +38,7 @@ public class PhotosService {
     // Update an existing photo
     public PhotosC update(PhotosC photo, Integer id) {
         // Check if the photo exists before updating
-        if (!photosRepo.existsById(id)) {
+        if (photosRepo.existsById(id)) {
             throw new IllegalArgumentException("Photo with ID " + id + " does not exist.");
         }
         photo.setId(id); // Set the ID for the update
@@ -48,9 +47,9 @@ public class PhotosService {
 
     // Delete a photo by ID
     public void deleteById(Integer id) {
-        if (!photosRepo.existsById(id)) {
+        if (photosRepo.existsById(id)) {
             throw new IllegalArgumentException("Photo with ID " + id + " does not exist.");
         }
-        photosRepo.DeleteById(id);
+        photosRepo.deleteById(id);
     }
 }

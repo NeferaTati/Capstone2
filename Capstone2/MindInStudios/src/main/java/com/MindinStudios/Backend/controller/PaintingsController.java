@@ -28,7 +28,7 @@ public class PaintingsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getPaintingById(@PathVariable Integer id) {
+    public ResponseEntity<PaintingsC> getPaintingById(@PathVariable Integer id) {
         return paintingRepo.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

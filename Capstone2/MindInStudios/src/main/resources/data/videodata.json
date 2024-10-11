@@ -5,7 +5,7 @@
     "title": "Fusion X flyer",
     "description": "For Auditions",
     "materials": "Canva",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365297/work/RPReplay_Final1661394572_hyusms.mov"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365297/work/RPReplay_Final1661394572_hyusms.mov"
   },
   {
     "id": "2",
@@ -13,7 +13,7 @@
     "title": "NiNA",
     "description": "Concept Poster for Nina's Performance in Montreux",
     "materials": "Adobe Creative Suites",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365287/work/IMG_7478_vp8gjm.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365287/work/IMG_7478_vp8gjm.jpg"
   },
   {
     "id": "3",
@@ -21,7 +21,7 @@
     "title": "Colors",
     "description": "Gif made to express the vibrant nature of the photo",
     "materials": "Gif, Adobe Creative Suites",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/animated_esva0n.gif"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/animated_esva0n.gif"
   },
   {
     "id": "4",
@@ -29,7 +29,7 @@
     "title": "Free Nahiem",
     "description": "Over 500 copies printed for rally weeklong protests.",
     "materials": "Canva",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/animated_esva0n.gif"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/animated_esva0n.gif"
   },
   {
     "id": "5",
@@ -37,7 +37,7 @@
     "title": "Fusion X Live poster",
     "description": "Outro for videos",
     "materials": "Canva",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365293/work/RPReplay_Final1638201739_b2xogp.mp4"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365293/work/RPReplay_Final1638201739_b2xogp.mp4"
   },
   {
     "id": "6",
@@ -45,7 +45,7 @@
     "title": "Spoken Word Poster",
     "description": "What is actually the truth",
     "materials": "Canva, Google Photos Editing",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365293/work/RPReplay_Final1638201739_b2xogp.mp4"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/video/upload/v1727365293/work/RPReplay_Final1638201739_b2xogp.mp4"
   },
   {
     "id": "7",
@@ -53,6 +53,6 @@
     "title": "Vuori Clothing Community Events Board",
     "description": "Every purchase planted a tree",
     "materials": "Chalk Markers",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365296/work/IMG_6279_jpzby8.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365296/work/IMG_6279_jpzby8.heic"
   }
 ]

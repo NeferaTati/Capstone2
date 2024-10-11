@@ -17,5 +17,5 @@ public class PhotosC {
     private Integer id;
     private String title;
     private String areaDescription;
-    private String image_url;
+    private String imageUrl;
 }

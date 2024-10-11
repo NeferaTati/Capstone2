@@ -3,72 +3,72 @@
     "id": "1",
     "title": "A Celebration",
     "materials": "Acrylic, Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365290/work/IMG_5750_b8ls2m.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365290/work/IMG_5750_b8ls2m.jpg"
   },
   {
     "id": "2",
     "title": "Limited Movements; Color Saturation",
     "materials": "Acrylic",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365288/work/IMG_5734_xjkans.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365288/work/IMG_5734_xjkans.jpg"
   },
   {
     "id": "3",
     "title": "God Touched the Sky",
     "materials": "Ink, Acrylic",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365242/work/IMG_5732_y2mvak.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365242/work/IMG_5732_y2mvak.jpg"
   },
   {
     "id": "4",
     "title": "Untitled",
     "materials": "Acrylic, Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365242/work/IMG_5729_dwasn0.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365242/work/IMG_5729_dwasn0.jpg"
   },
   {
     "id": "5",
     "title": "Love Within the Moment",
     "materials": "Acrylic, Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143477/MI/IMG_4931_m5zy6f.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143477/MI/IMG_4931_m5zy6f.jpg"
   },
   {
     "id": "6",
     "title": "Poseidon's Garden",
     "materials": "Acrylic",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143478/MI/IMG_4933_zmyogo.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143478/MI/IMG_4933_zmyogo.jpg"
   },
   {
     "id": "7",
     "title": "Clay Faced Priest",
     "materials": "Acrylic, Velvet fabric, Linen",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/E4358CA8-73B8-4184-9F45-CADB68420714_webejs.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365107/work/E4358CA8-73B8-4184-9F45-CADB68420714_webejs.jpg"
   },
   {
     "id": "8",
     "title": "Untitled",
     "materials": "Acrylic, Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365296/work/IMG_6279_jpzby8.heic"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365296/work/IMG_6279_jpzby8.heic"
   },
   {
     "id": "9",
     "title": "Evolution",
     "materials": "Acrylic",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365291/work/IMG_5733_jmswrj.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365291/work/IMG_5733_jmswrj.jpg"
   },
   {
     "id": "10",
     "title": "21 Frames",
     "materials": "Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365247/work/IMG_5731_qzf2rz.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1727365247/work/IMG_5731_qzf2rz.jpg"
   },
   {
     "id": "11",
     "title": "The Terrible Mask",
     "materials": "Oil, Acrylic",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143476/MI/IMG_4929_klu5vw.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143476/MI/IMG_4929_klu5vw.jpg"
   },
   {
     "id": "12",
     "title": "Take My Ears I Will Still Hear",
     "materials": "Oil",
-    "image_url": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143476/MI/IMG_4929_klu5vw.jpg"
+    "imageUrl": "https://res.cloudinary.com/dvvin6oes/image/upload/v1714143476/MI/IMG_4929_klu5vw.jpg"
   }
 ]
